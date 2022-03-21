@@ -35,6 +35,7 @@ async def send_my_id(message: Message):
     )
 
 
+
 async def send_my_apps(message: Message):
     apps_names = ""
     for app in INSTALLED_APPS:
