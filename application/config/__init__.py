@@ -1,2 +1,2 @@
 from .database import DatabaseConfig
-from .web import *
+# from .web import *

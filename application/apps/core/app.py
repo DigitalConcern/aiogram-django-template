@@ -11,9 +11,9 @@ def register(dp: Optional[Dispatcher] = None) -> None:
     :param dp:
         If Dispatcher is not None — register bots modules.
     """
-    from .models import register_models
-
-    register_models()
+    # from .models import register_models
+    #
+    # register_models()
 
     if dp is not None:
         from .bot.filters import register_filters

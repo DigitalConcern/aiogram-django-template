@@ -4,7 +4,10 @@ from . import views
 
 # Register your urls here
 
-urlpatterns = [path("", views.simple_view)]
+urlpatterns = [
+    path("", views.HomePageView.as_view(), name='home'),
+    path("users/", views.UsersPageView.as_view(), name='users'),
+]
 
 # To register this URLS
 # path("core/", include("apps.core.web.urls"))

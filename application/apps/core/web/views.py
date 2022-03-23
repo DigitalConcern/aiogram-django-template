@@ -1,8 +1,22 @@
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+# from django.http import HttpRequest, HttpResponse
+# from django.shortcuts import render
+from django.views.generic import TemplateView
+from django.core import serializers
+from django.template.context import RequestContext, Context
+from ..models import User
 
-# Create your views here.
+
+class HomePageView(TemplateView):
+    template_name = 'home.html'
 
 
-async def simple_view(request: HttpRequest) -> HttpResponse:
-    return HttpResponse('Hello from "Core" app!')
+class UsersPageView(TemplateView):
+    template_name = 'users.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['users'] = User.objects.all()
+        return context
+
+# async def simple_view(request: HttpRequest) -> HttpResponse:
+#     return HttpResponse('Hello from "Core" app!')

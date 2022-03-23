@@ -17,10 +17,9 @@ def register_handlers(dp: Dispatcher):
 
 
 async def start(message: Message):
-    user, is_created = await services.add_user(
+    user, is_created = services.add_user(
         tg_id=message.from_user.id,
-        chat_id=message.chat.id,
-        first_name=message.from_user.first_name,
+        username=message.from_user.username
     )
 
     if is_created:
@@ -33,7 +32,6 @@ async def send_my_id(message: Message):
     await message.answer(
         f"User Id: <b>{message.from_user.id}</b>\n" f"Chat Id: <b>{message.chat.id}</b>"
     )
-
 
 
 async def send_my_apps(message: Message):

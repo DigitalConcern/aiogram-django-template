@@ -1,23 +1,12 @@
-from orm_converter.tortoise_to_django import ConvertedModel
-from tortoise import Tortoise, fields
-from tortoise.models import Model
+# from tortoise import Tortoise, fields
+# from tortoise.models import Model
+from django.db import models
+# from orm_converter.tortoise_to_django import ConvertedModel
 
 
-class User(Model, ConvertedModel):
-    tg_id = fields.BigIntField(unique=True, description="Telegram User ID")
-    chat_id = fields.BigIntField(unique=False, description="Telegram Chat ID")
-    first_name = fields.CharField(max_length=64, description="Telegram Firstname")
+class User(models.Model):
+    tg_id = models.CharField("Telegram User ID", max_length=255)
+    username = models.CharField("Telegram Username", max_length=255)
 
     def __str__(self) -> str:
-        return f"{self.first_name} - {self.tg_id}"
-
-    class Meta:
-        table = "user"
-
-
-def register_models() -> None:
-    Tortoise.init_models(
-        models_paths=["apps.core.models"],
-        app_label="core",
-        _init_relations=False,
-    )
+        return f"{self.username} - {self.tg_id}"
