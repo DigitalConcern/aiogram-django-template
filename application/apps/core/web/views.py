@@ -18,5 +18,10 @@ class UsersPageView(TemplateView):
         context['users'] = User.objects.all()
         return context
 
+
+class MailingPageView(TemplateView):
+    template_name = 'mailing.html'
+
+
 # async def simple_view(request: HttpRequest) -> HttpResponse:
 #     return HttpResponse('Hello from "Core" app!')

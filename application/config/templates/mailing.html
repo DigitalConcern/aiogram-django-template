@@ -26,12 +26,27 @@
           <a class="nav-link" href="{% url 'users' %}">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'mailing' %}">Mailing</a>
+          <a class="nav-link active" href="{% url 'mailing' %}">Mailing</a>
         </li>
       </ul>
     </div>
   </div>
     </nav>
+  <div class="container-fluid">
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label lh-1">Текст сообщения</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+    </div>
+    <p class="fw-light fst-italic lh-1 fs-6">Сообщение отправиться всем пользователям бота</p>
+    <div class="form-file form-file-lg mb-3">
+      <input type="file" class="form-file-input" id="customFileLg">
+      <label class="form-file-label" for="customFileLg">
+        <span class="form-file-button"></span>
+      </label>
+    </div>
+    <button type="button" class="btn btn-primary">Отправить</button>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   </body>

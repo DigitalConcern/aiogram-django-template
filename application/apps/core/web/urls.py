@@ -6,7 +6,8 @@ from . import views
 
 urlpatterns = [
     path("", views.HomePageView.as_view(), name='home'),
-    path("users/", views.UsersPageView.as_view(), name='users'),
+    path("mailing", views.MailingPageView.as_view(), name='mailing'),
+    path("users", views.UsersPageView.as_view(), name='users'),
 ]
 
 # To register this URLS
