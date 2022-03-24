@@ -1,9 +1,10 @@
-# from django.http import HttpRequest, HttpResponse
-# from django.shortcuts import render
-from django.views.generic import TemplateView
-from django.core import serializers
-from django.template.context import RequestContext, Context
+from django.views.generic import TemplateView, CreateView
+from django.urls import reverse_lazy
+import asyncio
+
 from ..models import User
+from . import forms
+from ..services import mailing
 
 
 class HomePageView(TemplateView):
@@ -19,9 +20,15 @@ class UsersPageView(TemplateView):
         return context
 
 
-class MailingPageView(TemplateView):
+class MailingPageView(CreateView):
     template_name = 'mailing.html'
+    form_class = forms.CommentForm
+    success_url = reverse_lazy('home')
 
+    async def get_success_url(self) -> str:
+        text = self.request.POST.get('text')
+        await mailing(text)
+        return await super().get_success_url()
 
 # async def simple_view(request: HttpRequest) -> HttpResponse:
 #     return HttpResponse('Hello from "Core" app!')

@@ -10,3 +10,7 @@ class User(models.Model):
 
     def __str__(self) -> str:
         return f"{self.username} - {self.tg_id}"
+
+
+class Comment(models.Model):
+    text = models.CharField("Message text", max_length=1000)
